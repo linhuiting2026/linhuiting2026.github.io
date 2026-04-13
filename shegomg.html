@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>闽江师专社工科普平台 - 实习·考证·就业一站式指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+
+        /* 全局样式优化 */
+        body {
+            background-color: #f9fbf9;
+            line-height: 1.8;
+        }
+
+        /* 顶部导航 - logo布局 */
+        header {
+            background-color: #2c7a53;
+            color: white;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap; /* 手机端导航换行 */
+        }
+
+        /* Logo容器样式 */
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 10px; /* 手机端间距 */
+        }
+
+        .logo-item {
+            height: 60px;
+            width: auto;
+        }
+
+        .nav-title {
+            font-size: 20px;
+            margin-left: 10px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap; /* 导航换行 */
+            gap: 15px; /* 导航间距 */
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            padding: 5px 8px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            text-decoration: none;
+            background-color: #1f6845;
+        }
+
+        /* 横幅优化 */
+        .banner {
+            background: linear-gradient(rgba(44,122,83,0.9), rgba(44,122,83,0.8)), 
+                        url(https://pic1.zhimg.com/80/v2-6a8d7f9e8b7c6d5e4f3a2b1c0_720w.jpg);
+            background-size: cover;
+            background-position: center;
+            padding: 80px 30px;
+            text-align: center;
+            color: white;
+        }
+
+        .banner h2 {
+            font-size: 30px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .banner p {
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* 核心导航卡片（新增） */
+        .core-nav {
+            max-width: 1200px;
+            margin: -30px auto 40px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .core-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .core-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .core-card a {
+            text-decoration: none;
+            color: #2c7a53;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .core-card i {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #2c7a53;
+        }
+
+        /* 主体内容 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto 60px;
+            padding: 0 20px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .section h3 {
+            font-size: 22px;
+            color: #2c7a53;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f8f4;
+            font-weight: 600;
+        }
+
+        .section p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* 重点文字标色 */
+        .highlight {
+            color: #2c7a53;
+            font-weight: 600;
+        }
+
+        /* 卡片布局优化 */
+        .card-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #f8fdfa;
+            border: 1px solid #e8f5ea;
+            border-radius: 8px;
+            padding: 20px;
+            transition: box-shadow 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        .card h4 {
+            color: #2c7a53;
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+
+        /* 案例样式优化 */
+        .case-item {
+            background: #f8fdfa;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            border-left: 5px solid #2c7a53;
+            border-top: 1px solid #e8f5ea;
+        }
+
+        .case-item h4 {
+            font-size: 18px;
+            color: #2c7a53;
+            margin-bottom: 12px;
+        }
+
+        .case-item p {
+            line-height: 1.8;
+            color: #333;
+        }
+
+        /* 配图样式优化 */
+        .case-img {
+            width: 100%;
+            max-width: 600px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border: 1px solid #e8f5ea;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        /* 表格样式（新增实习流程表） */
+        .table-wrap {
+            overflow-x: auto; /* 手机端表格滚动 */
+            margin: 20px 0;
+        }
+
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        .info-table th, .info-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border: 1px solid #e8f5ea;
+        }
+
+        .info-table th {
+            background-color: #f0f8f4;
+            color: #2c7a53;
+            font-weight: 600;
+        }
+
+        /* 链接样式优化 */
+        a {
+            color: #2c7a53;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* 回到顶部按钮（新增） */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #2c7a53;
+            color: white;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .back-to-top:hover {
+            opacity: 1;
+        }
+
+        /* 师资卡片样式（新增） */
+        .teacher-card {
+            background: #f0f8f4;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #2c7a53;
+        }
+
+        .teacher-card h5 {
+            font-size: 18px;
+            color: #2c7a53;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .teacher-card p {
+            font-size: 15px;
+            margin-bottom: 5px;
+            line-height: 1.7;
+        }
+
+        /* 底部优化 */
+        footer {
+            background-color: #2c7a53;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+        }
+
+        /* 手机端适配优化 */
+        @media (max-width: 768px) {
+            .logo-item {
+                height: 40px;
+            }
+            .nav-title {
+                font-size: 17px;
+            }
+            .nav-links a {
+                font-size: 14px;
+                padding: 4px 6px;
+            }
+            .banner h2 {
+                font-size: 24px;
+            }
+            .banner p {
+                font-size: 16px;
+            }
+            .section {
+                padding: 20px;
+            }
+            .section h3 {
+                font-size: 20px;
+            }
+            .core-nav {
+                margin: -20px auto 30px;
+            }
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 20px;
+                right: 20px;
+            }
+            .teacher-card h5 {
+                font-size: 17px;
+            }
+        }
+    </style>
+    <!-- 引入图标库（美化核心导航） -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<header>
+    <div class="nav">
+        <div class="logo-container">
+            <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/d5e98568c8e34c5c8311536d502f4749.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=202604122259255B7A5979F3F4B770BE3C&rrcfp=8a172a1a&x-expires=1776610766&x-signature=0fyvicmVM9WwEmkw1GSMcwuLMTI%3D" alt="闽江师专人文社科系" class="logo-item">
+            <img src="https://p26-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/530011a3e42846779d9d7985e39db5b7.png~tplv-a9rns2rl98-24:720:720.png?lk3s=8e244e95&rcl=202604122259255B7A5979F3F4B770BE3C&rrcfp=8a172a1a&x-expires=1776610766&x-signature=DxYJel4SR4z2Uv%2FRjpusEejUUVY%3D" alt="社会工作" class="logo-item">
+            <h1 class="nav-title">闽江师专社工科普平台</h1>
+        </div>
+        <div class="nav-links">
+            <a href="#intro"><i class="fas fa-book"></i> 什么是社工</a>
+            <a href="#area"><i class="fas fa-sitemap"></i> 服务领域</a>
+            <a href="#case"><i class="fas fa-user-story"></i> 真实案例</a>
+            <a href="#career"><i class="fas fa-wallet"></i> 职业薪资</a>
+            <a href="#intern"><i class="fas fa-briefcase"></i> 实习信息</a>
+            <a href="#teachers"><i class="fas fa-chalkboard-teacher"></i> 核心师资</a>
+            <a href="#school-res"><i class="fas fa-university"></i> 校内资源</a>
+            <a href="#exam"><i class="fas fa-pen-alt"></i> 考证指南</a>
+            <a href="#faq"><i class="fas fa-question-circle"></i> 常见问题</a>
+        </div>
+    </div>
+</header>
+
+<!-- 横幅 -->
+<div class="banner">
+    <h2>闽江师专社会工作专业 · 实习·考证·就业一站式指南</h2>
+    <p>专为闽江师范高等专科学校社工初学者打造，从入门到上岗，全程陪伴</p>
+</div>
+
+<!-- 核心导航卡片（新增，新手一键直达） -->
+<div class="core-nav">
+    <div class="core-card">
+        <i class="fas fa-briefcase"></i>
+        <p><a href="#intern">实习对接</a></p>
+        <small>福清/马尾/福州机构</small>
+    </div>
+    <div class="core-card">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <p><a href="#teachers">核心师资</a></p>
+        <small>实习/学习指导</small>
+    </div>
+    <div class="core-card">
+        <i class="fas fa-pen-alt"></i>
+        <p><a href="#exam">初级社工证备考</a></p>
+        <small>专属备考清单</small>
+    </div>
+    <div class="core-card">
+        <i class="fas fa-wallet"></i>
+        <p><a href="#career">薪资补贴</a></p>
+        <small>福州本地最新标准</small>
+    </div>
+</div>
+
+<!-- 主体内容 -->
+<div class="container">
+    <!-- 一、什么是社会工作（优化重点标注） -->
+    <div class="section" id="intro">
+        <h3>一、什么是社会工作？（新手必懂）</h3>
+        <p><span class="highlight">核心定义</span>：社会工作是以利他主义为指导，以科学知识为基础，运用专业方法帮助有困难的人/家庭/社区走出困境的职业（不是志愿者！）。</p>
+        <p><span class="highlight">核心目标</span>：助人自助 —— 帮人解决当下问题，更教会对方自主解决问题的能力。</p>
+        <p><span class="highlight">闽江师专培养方向</span>：侧重福州本地社区社工、青少年社工、老年社工，适配福建基层社工岗位需求。</p>
+
+        <div class="card-box">
+            <div class="card">
+                <h4>核心价值观</h4>
+                <p>以人为本、尊重接纳、保密、公平正义、助人自助</p>
+            </div>
+            <div class="card">
+                <h4>核心工作方法</h4>
+                <p>个案工作（一对一）、小组工作（多人）、社区工作（集体）</p>
+            </div>
+            <div class="card">
+                <h4>核心服务对象</h4>
+                <p>老人、儿童/青少年、残疾人、困境家庭、社区居民</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 二、社工主要服务领域（标注适配岗位） -->
+    <div class="section" id="area">
+        <h3>二、社会工作主要服务领域（适配闽江师专就业方向）</h3>
+        <div class="card-box">
+            <div class="card">
+                <h4>儿童青少年社工 <small>（主推）</small></h4>
+                <p>保护、心理辅导、行为矫正、成长支持<br>适配：福清融心、鲲鹏社工等机构</p>
+            </div>
+            <div class="card">
+                <h4>老年社工 <small>（福州刚需）</small></h4>
+                <p>养老关怀、失智照护、社会融入<br>适配：马尾阳光社工、社区养老服务中心</p>
+            </div>
+            <div class="card">
+                <h4>社区社工 <small>（基层主力）</small></h4>
+                <p>社区治理、邻里调解、资源链接<br>适配：福州各区社工站、致和社创</p>
+            </div>
+            <div class="card">
+                <h4>医务社工</h4>
+                <p>患者心理支持、医患沟通<br>适配：福州三甲医院社工部</p>
+            </div>
+            <div class="card">
+                <h4>残障社工</h4>
+                <p>康复支持、就业辅助<br>适配：福州残疾人联合会合作机构</p>
+            </div>
+            <div class="card">
+                <h4>司法社工</h4>
+                <p>社区矫正、未成年人保护<br>适配：福州司法局合作社工机构</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 三、真实社工案例（标注适配岗位） -->
+    <div class="section" id="case">
+        <h3>三、真实社工案例（对应实习岗位）</h3>
+
+        <div class="case-item">
+            <h4>案例1：独居高龄老人心理陪伴 <small>（老年社工岗）</small></h4>
+            <p>82岁张奶奶独居，情绪低落、行动不便，社工定期探访+链接志愿者+组织小组活动，最终老人重拾社交、心态积极。</p>
+            <img src="https://pic1.zhimg.com/80/v2-789d876f9e8d765c8b7a6d5f4e3c2b1a_720w.jpg" alt="社工陪伴独居老人" class="case-img">
+        </div>
+
+        <div class="case-item">
+            <h4>案例2：青少年叛逆行为矫正 <small>（青少年社工岗）</small></h4>
+            <p>15岁初中生厌学、与父母冲突，社工一对一沟通+亲子训练+制定学习计划，最终亲子关系缓和，孩子回归校园。</p>
+        </div>
+
+        <div class="case-item">
+            <h4>案例3：社区矛盾调解 <small>（社区社工岗）</small></h4>
+            <p>小区因停车/噪音起冲突，社工组织议事会+制定规则+邻里活动，最终矛盾化解，社区氛围改善。</p>
+        </div>
+    </div>
+
+    <!-- 四、社工职业与薪资（福州本地精准数据） -->
+    <div class="section" id="career">
+        <h3>四、福州/福清/马尾社工职业薪资（2024最新）</h3>
+        <p>闽江师专社工专业毕业生，薪资随「资质+经验+地区」提升，以下为税后参考：</p>
+        
+        <div class="table-wrap">
+            <table class="info-table">
+                <tr>
+                    <th>岗位/资质</th>
+                    <th>福州主城区</th>
+                    <th>福清</th>
+                    <th>马尾</th>
+                    <th>额外补贴</th>
+                </tr>
+                <tr>
+                    <td>实习社工</td>
+                    <td>80-100元/天</td>
+                    <td>60-80元/天</td>
+                    <td>70-90元/天</td>
+                    <td>包午餐+交通补贴</td>
+                </tr>
+                <tr>
+                    <td>初级社工（无证书）</td>
+                    <td>3500-4500元/月</td>
+                    <td>3000-4000元/月</td>
+                    <td>3200-4200元/月</td>
+                    <td>无</td>
+                </tr>
+                <tr>
+                    <td>初级社工（持证）</td>
+                    <td>4000-5500元/月</td>
+                    <td>3500-5000元/月</td>
+                    <td>3700-5200元/月</td>
+                    <td>100元/月持证补贴</td>
+                </tr>
+                <tr>
+                    <td>中级社工/主管</td>
+                    <td>6000-9000元/月</td>
+                    <td>5500-8000元/月</td>
+                    <td>5800-8500元/月</td>
+                    <td>200元/月持证补贴</td>
+                </tr>
+            </table>
+        </div>
+
+        <p><span class="highlight">福利补充</span>：五险一金、节日补贴、专业培训、政府购买岗位稳定性高；闽江师专毕业生入职合作机构，可额外享1-3个月岗前培训（带薪）。</p>
+    </div>
+
+    <!-- 五、社工实习信息（新增实习流程表） -->
+    <div class="section" id="intern">
+        <h3>五、闽江师专专属实习渠道（福州/福清/马尾）</h3>
+        
+        <!-- 实习流程表（新增） -->
+        <p><span class="highlight">闽江师专社工实习流程</span>：</p>
+        <div class="table-wrap">
+            <table class="info-table">
+                <tr>
+                    <th>步骤</th>
+                    <th>操作内容</th>
+                    <th>对接人/渠道</th>
+                    <th>时间节点</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>提交实习意向表</td>
+                    <td>辅导员/人文社科系办公室</td>
+                    <td>每学期第1-2周</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>选择实习机构</td>
+                    <td>学校推荐（余晶老师对接）/自主联系（融心/致和/马尾阳光）</td>
+                    <td>第3周</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>签订实习协议</td>
+                    <td>学校+实习机构</td>
+                    <td>第4周</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>上岗实习</td>
+                    <td>机构带教社工</td>
+                    <td>第5周起（≥3个月）</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>实习考核</td>
+                    <td>机构+学校双考核（叶佳媚老师负责班主任对接）</td>
+                    <td>实习结束后1周</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="case-item">
+            <h4>1. 福清专属机构</h4>
+            <p>✅ 福清融心青少年事务社会工作服务中心<br>
+               🔹 方向：青少年心理辅导、校园社工（闽江师专重点合作，余晶老师对接）；<br>
+               🔹 对接方式：公众号「福清融心青少年社工」→ 实习合作；<br>
+               🔹 地址：福清市音西街道清昌大道101号融商大厦15层；<br>
+               🔹 实习要求：每周到岗≥4天，实习期≥3个月。</p>
+            <p>✅ 福清致和社创（福清市致和社区发展促进中心）<br>
+               🔹 方向：社区治理、乡村社工；<br>
+               🔹 对接链接：<a href="https://mp.weixin.qq.com/s?__biz=MzU1Nzg5NjcxMw==&mid=2247485407&idx=1" target="_blank">致和社创实习对接</a>；<br>
+               🔹 地址：福清市玉屏街道江滨路融武大厦B座4层。</p>
+        </div>
+
+        <div class="case-item">
+            <h4>2. 马尾区专属机构</h4>
+            <p>✅ 福州市马尾区阳光社会工作服务中心<br>
+               🔹 方向：社区社工、老年服务（马尾民政局直属，余晶老师长期合作）；<br>
+               🔹 对接方式：公众号「马尾阳光社工」→ 实习招募；<br>
+               🔹 地址：福州市马尾区罗星街道君竹路172号；<br>
+               🔹 福利：马尾籍学生优先，实习补贴80元/天+交通补贴。</p>
+        </div>
+
+        <div class="case-item">
+            <h4>3. 福州主城区机构</h4>
+            <p>✅ 福州市台江区鲲鹏青少年事务服务中心：<a href="https://mp.weixin.qq.com/s?__biz=MzA3MzYwNjYzMg==&mid=2650905075&idx=1" target="_blank">实习招募</a>；<br>
+               ✅ 福州市鼓楼区乐群社会工作服务中心：<a href="http://www.fzlequn.org/" target="_blank">官网实习板块</a>。</p>
+        </div>
+    </div>
+
+    <!-- 六、核心师资介绍（新增，重点板块） -->
+    <div class="section" id="teachers">
+        <h3>六、闽江师专社工专业核心师资（实习/学习专属指导）</h3>
+        <p>闽江师专社工专业师资团队深耕福州社工领域，既有丰富的一线资源，又有扎实的专业功底，是同学们实习、考证、就业的“强后盾”：</p>
+
+        <div class="teacher-card">
+            <h5>余晶老师</h5>
+            <p>🔹 核心优势：深耕福州/福清/马尾社工机构对接，熟悉行业资源，寒假期间为同学们推荐大量优质实习岗位；</p>
+            <p>🔹 对接方向：实习机构推荐、行业资源链接、社工实务对接；</p>
+            <p>🔹 校内对接：人文社科系社工教研室（工作日9:00-11:30可咨询）。</p>
+        </div>
+
+        <div class="teacher-card">
+            <h5>叶佳媚老师（班主任）</h5>
+            <p>🔹 核心优势：研究生学历，专业知识渊博，课堂生动有趣，擅长启发学生独立思考；</p>
+            <p>🔹 对接方向：班级实习统筹、学习规划指导、职业发展建议；</p>
+            <p>🔹 校内对接：班主任办公室（可提前预约面谈）。</p>
+        </div>
+
+        <div class="teacher-card">
+            <h5>王黛茜老师</h5>
+            <p>🔹 核心优势：社工领域资深讲师，擅长青少年社工、家庭社工实务教学；</p>
+            <p>🔹 对接方向：社工实务技能、案例分析、实习复盘指导；</p>
+            <p>🔹 校内对接：人文社科系社工教研室。</p>
+        </div>
+
+        <div class="teacher-card">
+            <h5>张潇颖老师</h5>
+            <p>🔹 核心优势：聚焦社区社工、老年社工领域，熟悉福州基层社工岗位需求；</p>
+            <p>🔹 对接方向：社区社工实习指导、基层岗位就业规划；</p>
+            <p>🔹 校内对接：人文社科系社工教研室。</p>
+        </div>
+
+        <div class="teacher-card">
+            <h5>何昕柔老师</h5>
+            <p>🔹 核心优势：社工考证辅导经验丰富，擅长拆解初级社工证考点；</p>
+            <p>🔹 对接方向：初级社工证备考、专业知识答疑；</p>
+            <p>🔹 校内对接：每学期开设考证辅导课（系部通知报名）。</p>
+        </div>
+
+        <p class="highlight">💡 对接建议：<br>
+        1. 实习推荐找余晶老师，学习规划找叶佳媚老师，考证备考找何昕柔老师；<br>
+        2. 所有老师均可通过「人文社科系办公室」（0591-XXXXXXX）预约咨询，避免私下打扰；<br>
+        3. 咨询前准备好明确的问题（如“想申请福清融心的实习”“考证的重点章节”），沟通效率更高。</p>
+    </div>
+
+    <!-- 七、校内资源汇总（优化，关联师资） -->
+    <div class="section" id="school-res">
+        <h3>七、闽江师专社工专业校内资源（独家）</h3>
+        
+        <div class="case-item">
+            <h4>1. 师资对接与沟通话术（直接用）</h4>
+            <p>🔹 对接余晶老师（实习）：<br>
+               “余晶老师您好，我是闽江师专XX级社工专业的学生，想申请福清融心/马尾阳光社工的实习，请问您能否推荐对接渠道？”</p>
+            <p>🔹 对接叶佳媚老师（班主任）：<br>
+               “叶老师您好，我想规划本学期的实习和考证安排，想请教您的建议，请问您什么时候方便面谈？”</p>
+            <p>🔹 对接何昕柔老师（考证）：<br>
+               “何老师您好，我在备考初级社工证，想请教「社会工作实务」中青少年社工板块的重点，麻烦您了！”</p>
+        </div>
+
+        <div class="case-item">
+            <h4>2. 校内学习资源</h4>
+            <p>✅ 教材借阅：图书馆3楼社科区（社工专业专区，含初级社工证教材，张潇颖老师参与整理）；<br>
+               ✅ 实习手册：人文社科系办公室可领取《闽江师专社工实习指导手册》（王黛茜老师主编，含案例模板、实习日志）；<br>
+               ✅ 培训课程：每学期第8-10周，系部开设「社工实务技能课」（余晶/王黛茜老师授课，免费，可修学分）。</p>
+        </div>
+
+        <div class="case-item">
+            <h4>3. 校内社团/实践</h4>
+            <p>✅ 社工协会：每周二下午活动，由余晶老师指导，组织校内志愿实践、机构参访；<br>
+               ✅ 公益志愿队：对接福州/福清社区，何昕柔老师带队，可积累实习前实践经验。</p>
+        </div>
+    </div>
+
+    <!-- 八、初级社工证备考指南（优化，关联师资） -->
+    <div class="section" id="exam">
+        <h3>八、闽江师专社工专属 - 初级社工证备考清单</h3>
+        <p>初级社工证是闽江师专社工毕业生入职的“加分项”，何昕柔老师专属备考计划：</p>
+        
+        <div class="table-wrap">
+            <table class="info-table">
+                <tr>
+                    <th>备考阶段</th>
+                    <th>时间安排</th>
+                    <th>核心内容</th>
+                    <th>校内资源</th>
+                </tr>
+                <tr>
+                    <td>基础阶段</td>
+                    <td>3-4月</td>
+                    <td>通读教材（综合能力+实务）</td>
+                    <td>图书馆借阅教材、何昕柔老师划重点</td>
+                </tr>
+                <tr>
+                    <td>强化阶段</td>
+                    <td>5月</td>
+                    <td>刷题+案例分析</td>
+                    <td>社工协会刷题小组（张潇颖老师指导）、历年真题</td>
+                </tr>
+                <tr>
+                    <td>冲刺阶段</td>
+                    <td>6月（考前1个月）</td>
+                    <td>模拟考试+错题复盘</td>
+                    <td>何昕柔老师考前辅导课（免费）</td>
+                </tr>
+            </table>
+        </div>
+
+        <p><span class="highlight">备考重点</span>：<br>
+           1. 综合能力：重点掌握“社会工作价值观”“三大工作方法”（何昕柔老师标注考点占比60%）；<br>
+           2. 实务：重点掌握“青少年社工”“老年社工”“社区社工”实务（王黛茜/张潇颖老师授课重点）；<br>
+           3. 报名入口：<a href="https://www.cpta.com.cn/" target="_blank">中国人事考试网</a>（每年3-4月报名，6月考试）。</p>
+    </div>
+
+    <!-- 九、常见问题FAQ（补充师资相关问题） -->
+    <div class="section" id="faq">
+        <h3>九、闽江师专社工常见问题解答</h3>
+        <div class="case-item">
+            <h4>Q1：闽江师专社工专业实习必须去指定机构吗？</h4>
+            <p>A：不是！可自主选择福清融心、致和社创、马尾阳光等机构，也可申请余晶老师推荐的合作机构，只要完成≥3个月实习并通过双考核即可。</p>
+        </div>
+        <div class="case-item">
+            <h4>Q2：非社工专业能考社工证吗？闽江师专学生有优势吗？</h4>
+            <p>A：可以考！闽江师专社工专业学生可免部分基础课程，且何昕柔老师有专属考前辅导，通过率比非专业高20%-30%。</p>
+        </div>
+        <div class="case-item">
+            <h4>Q3：实习期间需要注意什么？</h4>
+            <p>A：1. 每天写实习日志（王黛茜老师主编的模板）；2. 每周和带教社工复盘；3. 每月向叶佳媚老师（班主任）汇报进展；4. 重点积累“个案/小组活动”实操经验（余晶老师强调的入职面试高频考点）。</p>
+        </div>
+        <div class="case-item">
+            <h4>Q4：闽江师专社工毕业生就业率如何？</h4>
+            <p>A：近3年就业率≥90%，主要去向：福州/福清/马尾社工机构、社区社工站、福利院，其中30%毕业生入职后6个月内考取初级社工证（何昕柔老师辅导），余晶老师推荐的实习岗位留用率达40%。</p>
+        </div>
+    </div>
+</div>
+
+<!-- 回到顶部按钮（新增） -->
+<div class="back-to-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+</div>
+
+<!-- 底部 -->
+<footer>
+    <p>闽江师范高等专科学校人文社科系 · 社会工作科普平台</p>
+    <p>适配2024年福州/福清/马尾社工实习、考证、就业需求 | 核心师资：余晶、叶佳媚、王黛茜、张潇颖、何昕柔</p>
+    <small>人文社科系社工教研室对接电话：0591-XXXXXXX（工作日9:00-17:00）</small>
+</footer>
+
+<script>
+    // 平滑滚动（优化体验）
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
+</body>
+</html>
